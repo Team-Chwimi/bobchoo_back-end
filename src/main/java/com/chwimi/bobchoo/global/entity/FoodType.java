@@ -11,15 +11,10 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tb_food_type")
-public class FoodType {
+public class FoodType extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "food_type_id")
-    private Long foodTypeId;
-
-    @Column(name = "food_type", length = 100)
-    private String foodType;
+    @Column(name = "type", length = 100, nullable = false)
+    private String type;
 
     @OneToMany(mappedBy = "foodType")
     private Set<FoodInfo> foodInfos;

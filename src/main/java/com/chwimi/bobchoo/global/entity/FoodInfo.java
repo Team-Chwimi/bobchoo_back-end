@@ -10,11 +10,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tb_food_info")
-public class FoodInfo {
-
-    @Id
-    @Column(name = "food_info_id")
-    private Long id;
+public class FoodInfo extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "food_id")

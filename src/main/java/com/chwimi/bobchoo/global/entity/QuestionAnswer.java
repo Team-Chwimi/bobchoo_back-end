@@ -10,11 +10,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tb_question_answer")
-public class QuestionAnswer {
-
-    @Id
-    @Column(name = "question_answer_id")
-    private Long questionAnswerId;
+public class QuestionAnswer extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "question_id")

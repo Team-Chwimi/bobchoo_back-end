@@ -11,21 +11,16 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tb_question")
-public class Question {
+public class Question extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "question_id")
-    private Long questionId;
-
-    @Column(name = "question", length = 200)
+    @Column(name = "question", length = 200, nullable = false)
     private String question;
 
-    @Column(name = "question_description", length = 1000)
-    private String questionDescription;
+    @Column(name = "description", length = 1000)
+    private String description;
 
-    @Column(name = "question_overlap")
-    private Boolean questionOverLap;
+    @Column(name = "overlap")
+    private boolean overLap;
 
     @OneToMany(mappedBy = "question")
     private Set<QuestionAnswer> questionAnswers;

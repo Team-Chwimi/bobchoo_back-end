@@ -7,67 +7,62 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tb_satisfaction")
-public class Satisfaction {
+public class Satisfaction extends BaseEntity {
 
-    @Id
-    @Column(name = "satisfaction_id")
-    private Long satisfactionId;
-
-    @Column(name = "satisfaction")
+    @Column(name = "satisfaction", nullable = false)
     private Integer satisfaction;
 
-    @Column(name = "food_name")
+    @Column(name = "food_name", nullable = false)
     private String foodName;
 
     @Column(name = "spicy")
-    private Integer spicy;
+    private boolean spicy;
 
     @Column(name = "cool")
-    private Integer cool;
+    private boolean cool;
 
     @Column(name = "rice")
-    private Integer rice;
+    private boolean rice;
 
     @Column(name = "noodle")
-    private Integer noodle;
+    private boolean noodle;
 
     @Column(name = "without_rice_noodle")
-    private Integer withOutRiceNoodle;
+    private boolean withoutRiceNoodle;
 
     @Column(name = "meat")
-    private Integer meat;
+    private boolean meat;
 
     @Column(name = "seafood")
-    private Integer seafood;
+    private boolean seafood;
 
     @Column(name = "korean")
-    private Integer korean;
+    private boolean korean;
 
     @Column(name = "western")
-    private Integer western;
+    private boolean western;
 
     @Column(name = "chinese")
-    private Integer chinese;
+    private boolean chinese;
 
     @Column(name = "japanese")
-    private Integer japanese;
+    private boolean japanese;
 
     @Column(name = "asian")
-    private Integer asian;
+    private boolean asian;
 
     @Column(name = "snack")
-    private Integer snack;
+    private boolean snack;
 
     @Column(name = "fastfood")
-    private Integer fastfood;
+    private boolean fastfood;
 
     @Column(name = "etcfood")
-    private Integer etcfood;
+    private boolean etcfood;
 }

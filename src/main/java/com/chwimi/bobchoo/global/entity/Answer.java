@@ -11,15 +11,12 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tb_answer")
-public class Answer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "answer_id")
-    private Long answerId;
+public class Answer extends BaseEntity {
 
-    @Column(name = "answer", length = 500)
+    @Column(name = "answer", length = 500, nullable = false)
     private String answer;
 
     @OneToMany(mappedBy = "answer")
     private Set<QuestionAnswer> questionAnswers;
+
 }
