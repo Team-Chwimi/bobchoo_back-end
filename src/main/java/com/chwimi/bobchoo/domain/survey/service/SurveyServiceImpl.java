@@ -1,16 +1,20 @@
 package com.chwimi.bobchoo.domain.survey.service;
 
 import com.chwimi.bobchoo.domain.survey.dto.*;
+import com.chwimi.bobchoo.global.common.FoodTypeEnum;
 import com.chwimi.bobchoo.global.entity.Food;
-import com.chwimi.bobchoo.global.entity.FoodType;
-import com.chwimi.bobchoo.global.entity.Satisfaction;
-import com.chwimi.bobchoo.global.repository.*;
 import com.chwimi.bobchoo.global.entity.Question;
+import com.chwimi.bobchoo.global.entity.Satisfaction;
+import com.chwimi.bobchoo.global.repository.FoodRepositorySupport;
+import com.chwimi.bobchoo.global.repository.QuestionRepository;
+import com.chwimi.bobchoo.global.repository.SatisfactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -18,25 +22,8 @@ import java.util.stream.Collectors;
 public class SurveyServiceImpl implements SurveyService {
 
     private final QuestionRepository questionRepository;
-    private final FoodRepository foodRepository;
     private final SatisfactionRepository satisfactionRepository;
     private final FoodRepositorySupport foodRepositorySupport;
-    private final FoodTypeRepository foodTypeRepository;
-    private static List<FoodType> foodTypes;    //인덱스가 0부터 시작한다는 점 유의 {idx:0 ~ , value:food_type_id}
-    private static HashMap<Long, Integer> questionMatchFoodType; //1번 문항 제외
-
-    @PostConstruct
-    private void initStaticObject() {
-        foodTypes = foodTypeRepository.findAll();
-        questionMatchFoodType = new HashMap<>();
-        questionMatchFoodType.put(2L, 12);
-        questionMatchFoodType.put(3L, 13);
-        questionMatchFoodType.put(4L, 10);
-        questionMatchFoodType.put(5L, 14);
-        questionMatchFoodType.put(6L, 11);
-        questionMatchFoodType.put(7L, 9);
-        questionMatchFoodType.put(8L, 15);
-    }
 
     @Override
     public SurveyResponseDto getSurveys() {
@@ -72,8 +59,8 @@ public class SurveyServiceImpl implements SurveyService {
                 for (String answer : answerReqDto.getAnswer())
                     types.add(answer);
             } else {
-                int foodTypeId = questionMatchFoodType.get(answerReqDto.getQuestionId());
-                types.add(foodTypes.get(foodTypeId - 1).getType());
+                FoodTypeEnum foodType = FoodTypeEnum.findByQuestionId(answerReqDto.getQuestionId());
+                types.add(foodType.getType());
             }
         }
         return types;
@@ -82,34 +69,33 @@ public class SurveyServiceImpl implements SurveyService {
     @Override
     public boolean surveySatisfaction(SatisfactionReqDto satisfactionReqDto) {
         List<AnswerReqDto> answerReqDtos = satisfactionReqDto.getAnswerList();
-        Set<String> answerSet = new HashSet<>();
+        Set<FoodTypeEnum> foodTypeSet = EnumSet.noneOf(FoodTypeEnum.class);
         for (AnswerReqDto answerReqDto : answerReqDtos) {
-            if (answerReqDto.getQuestionId() == 1L) {
+            if (answerReqDto.getQuestionId() == 1L) {   //어떤 종류의 음식인지 (한식, 양식, 중식...)
                 for (String answer : answerReqDto.getAnswer())
-                    answerSet.add(answer);
-            } else {
-                answerSet.add(answerReqDto.getQuestionId().toString());
-            }
+                    foodTypeSet.add(FoodTypeEnum.findByType(answer));
+            } else //다른 질문일 때는 questionId로 판별
+                foodTypeSet.add(FoodTypeEnum.findByQuestionId(answerReqDto.getQuestionId()));
         }
 
         Satisfaction satisfaction = Satisfaction.builder()
                 .satisfaction(satisfactionReqDto.getSatisfaction())
                 .foodName(satisfactionReqDto.getFoodName())
-                .spicy(answerSet.contains("7"))
-                .cool(answerSet.contains("8"))
-                .rice(answerSet.contains("2"))
-                .noodle(answerSet.contains("3"))
-                .withoutRiceNoodle(answerReqDtos.contains("4"))
-                .meat(answerSet.contains("5"))
-                .seafood(answerSet.contains("6"))
-                .korean(answerSet.contains("한식"))
-                .western(answerSet.contains("양식"))
-                .chinese(answerSet.contains("중식"))
-                .japanese(answerSet.contains("일식"))
-                .asian(answerSet.contains("아시아음식"))
-                .snack(answerSet.contains("분식"))
-                .fastfood(answerSet.contains("패스트푸드"))
-                .etcfood(answerSet.contains("기타"))
+                .spicy(foodTypeSet.contains(FoodTypeEnum.SPICY))
+                .cool(foodTypeSet.contains(FoodTypeEnum.COOL))
+                .rice(foodTypeSet.contains(FoodTypeEnum.RICE))
+                .noodle(foodTypeSet.contains(FoodTypeEnum.NOODLE))
+                .withoutRiceNoodle(foodTypeSet.contains(FoodTypeEnum.WITHOUT_RICE_NOODLE))
+                .meat(foodTypeSet.contains(FoodTypeEnum.MEAT))
+                .seafood(foodTypeSet.contains(FoodTypeEnum.SEAFOOD))
+                .korean(foodTypeSet.contains(FoodTypeEnum.KOREAN))
+                .western(foodTypeSet.contains(FoodTypeEnum.WESTERN))
+                .chinese(foodTypeSet.contains(FoodTypeEnum.CHINESE))
+                .japanese(foodTypeSet.contains(FoodTypeEnum.JAPANESE))
+                .asian(foodTypeSet.contains(FoodTypeEnum.ASIAN))
+                .snack(foodTypeSet.contains(FoodTypeEnum.SNACK))
+                .fastfood(foodTypeSet.contains(FoodTypeEnum.FAST_FOOD))
+                .etcfood(foodTypeSet.contains(FoodTypeEnum.ETC_FOOD))
                 .build();
         satisfactionRepository.save(satisfaction);
         return true;
