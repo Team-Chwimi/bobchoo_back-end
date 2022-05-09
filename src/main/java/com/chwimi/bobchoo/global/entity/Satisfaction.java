@@ -1,9 +1,7 @@
 package com.chwimi.bobchoo.global.entity;
 
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +9,9 @@ import javax.persistence.Table;
 
 @Getter
 @Entity
+@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tb_satisfaction")
 public class Satisfaction extends BaseEntity {
 
