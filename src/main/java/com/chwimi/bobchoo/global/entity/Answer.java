@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Entity
@@ -17,6 +17,6 @@ public class Answer extends BaseEntity {
     private String answer;
 
     @OneToMany(mappedBy = "answer")
-    private Set<QuestionAnswer> questionAnswers;
+    private List<QuestionAnswer> questionAnswers;
 
 }

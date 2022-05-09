@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Entity
@@ -17,5 +17,5 @@ public class FoodType extends BaseEntity {
     private String type;
 
     @OneToMany(mappedBy = "foodType")
-    private Set<FoodInfo> foodInfos;
+    private List<FoodInfo> foodInfos;
 }

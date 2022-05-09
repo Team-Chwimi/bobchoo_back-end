@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Entity
@@ -23,6 +23,6 @@ public class Question extends BaseEntity {
     private boolean overLap;
 
     @OneToMany(mappedBy = "question")
-    private Set<QuestionAnswer> questionAnswers;
+    private List<QuestionAnswer> questionAnswers;
 
 }
