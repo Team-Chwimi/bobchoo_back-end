@@ -1,7 +1,7 @@
 package com.chwimi.bobchoo.survey;
 
 import com.chwimi.bobchoo.domain.survey.dto.AnswerReqDto;
-import com.chwimi.bobchoo.domain.survey.dto.SurveyResponseDto;
+import com.chwimi.bobchoo.domain.survey.dto.SurveyResDto;
 import com.chwimi.bobchoo.domain.survey.dto.SurveyResultReqDto;
 import com.chwimi.bobchoo.domain.survey.service.SurveyServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ public class SurveyServiceTest {
     @Test
     @Transactional
     void 설문목록반환() {
-        SurveyResponseDto surveys = service.getSurveys();
+        SurveyResDto surveys = service.getSurveys();
         System.out.println("ok");
     }
 

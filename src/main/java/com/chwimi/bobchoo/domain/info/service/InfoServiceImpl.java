@@ -1,7 +1,7 @@
 package com.chwimi.bobchoo.domain.info.service;
 
 import com.chwimi.bobchoo.domain.info.dto.CopyrightResDto;
-import com.chwimi.bobchoo.domain.survey.dto.FoodResDto;
+import com.chwimi.bobchoo.global.dto.FoodResDto;
 import com.chwimi.bobchoo.global.entity.Food;
 import com.chwimi.bobchoo.global.repository.FoodRepository;
 import lombok.RequiredArgsConstructor;

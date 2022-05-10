@@ -1,4 +1,4 @@
-package com.chwimi.bobchoo.domain.survey.dto;
+package com.chwimi.bobchoo.global.dto;
 
 import com.chwimi.bobchoo.global.entity.Answer;
 import com.fasterxml.jackson.annotation.JsonValue;

@@ -3,7 +3,7 @@ package com.chwimi.bobchoo.domain.random.service;
 import com.chwimi.bobchoo.domain.random.dto.RandomResultReqDto;
 import com.chwimi.bobchoo.domain.random.dto.SelectSurveyResDto;
 import com.chwimi.bobchoo.domain.random.exception.SurveyNotFoundException;
-import com.chwimi.bobchoo.domain.survey.dto.FoodResDto;
+import com.chwimi.bobchoo.global.dto.FoodResDto;
 import com.chwimi.bobchoo.global.common.StatusEnum;
 import com.chwimi.bobchoo.global.entity.Food;
 import com.chwimi.bobchoo.global.entity.Question;

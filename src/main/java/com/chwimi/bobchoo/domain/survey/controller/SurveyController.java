@@ -1,8 +1,8 @@
 package com.chwimi.bobchoo.domain.survey.controller;
 
-import com.chwimi.bobchoo.domain.survey.dto.FoodResDto;
+import com.chwimi.bobchoo.global.dto.FoodResDto;
 import com.chwimi.bobchoo.domain.survey.dto.SatisfactionReqDto;
-import com.chwimi.bobchoo.domain.survey.dto.SurveyResponseDto;
+import com.chwimi.bobchoo.domain.survey.dto.SurveyResDto;
 import com.chwimi.bobchoo.domain.survey.dto.SurveyResultReqDto;
 import com.chwimi.bobchoo.domain.survey.service.SurveyService;
 import com.chwimi.bobchoo.global.common.BaseResponse;
@@ -20,7 +20,7 @@ public class SurveyController {
     private final SurveyService surveyService;
 
     @GetMapping
-    public SurveyResponseDto surveys() {
+    public SurveyResDto surveys() {
         return surveyService.getSurveys();
     }
 

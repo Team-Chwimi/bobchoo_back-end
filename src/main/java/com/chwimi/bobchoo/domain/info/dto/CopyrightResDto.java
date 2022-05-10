@@ -1,6 +1,6 @@
 package com.chwimi.bobchoo.domain.info.dto;
 
-import com.chwimi.bobchoo.domain.survey.dto.FoodResDto;
+import com.chwimi.bobchoo.global.dto.FoodResDto;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

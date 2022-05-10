@@ -1,14 +1,14 @@
 package com.chwimi.bobchoo.domain.survey.service;
 
-import com.chwimi.bobchoo.domain.survey.dto.FoodResDto;
+import com.chwimi.bobchoo.global.dto.FoodResDto;
 import com.chwimi.bobchoo.domain.survey.dto.SatisfactionReqDto;
-import com.chwimi.bobchoo.domain.survey.dto.SurveyResponseDto;
+import com.chwimi.bobchoo.domain.survey.dto.SurveyResDto;
 import com.chwimi.bobchoo.domain.survey.dto.SurveyResultReqDto;
 
 import java.util.List;
 
 public interface SurveyService {
-    SurveyResponseDto getSurveys();
+    SurveyResDto getSurveys();
 
     FoodResDto surveyResult(SurveyResultReqDto resultReqDto);
 

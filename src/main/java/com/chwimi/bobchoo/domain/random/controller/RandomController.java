@@ -3,8 +3,7 @@ package com.chwimi.bobchoo.domain.random.controller;
 import com.chwimi.bobchoo.domain.random.dto.RandomResultReqDto;
 import com.chwimi.bobchoo.domain.random.dto.SelectSurveyResDto;
 import com.chwimi.bobchoo.domain.random.service.RandomService;
-import com.chwimi.bobchoo.domain.survey.dto.FoodResDto;
-import com.chwimi.bobchoo.domain.survey.dto.SurveyResponseDto;
+import com.chwimi.bobchoo.global.dto.FoodResDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
