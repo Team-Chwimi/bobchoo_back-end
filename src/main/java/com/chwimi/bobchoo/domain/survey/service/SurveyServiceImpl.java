@@ -2,6 +2,8 @@ package com.chwimi.bobchoo.domain.survey.service;
 
 import com.chwimi.bobchoo.domain.survey.dto.*;
 import com.chwimi.bobchoo.global.common.FoodTypeEnum;
+import com.chwimi.bobchoo.global.dto.FoodResDto;
+import com.chwimi.bobchoo.global.dto.QuestionResDto;
 import com.chwimi.bobchoo.global.entity.Food;
 import com.chwimi.bobchoo.global.entity.Question;
 import com.chwimi.bobchoo.global.entity.Satisfaction;
@@ -26,12 +28,12 @@ public class SurveyServiceImpl implements SurveyService {
     private final FoodRepositorySupport foodRepositorySupport;
 
     @Override
-    public SurveyResponseDto getSurveys() {
+    public SurveyResDto getSurveys() {
         List<Question> questions = questionRepository.findAll();
-        List<QuestionDto> questionDtos = questions.stream()
-                .map(o -> QuestionDto.of(o))
+        List<QuestionResDto> questionResDtos = questions.stream()
+                .map(o -> QuestionResDto.of(o))
                 .collect(Collectors.toList());
-        return SurveyResponseDto.of(questions.size(), questionDtos);
+        return SurveyResDto.of(questions.size(), questionResDtos);
     }
 
     @Override

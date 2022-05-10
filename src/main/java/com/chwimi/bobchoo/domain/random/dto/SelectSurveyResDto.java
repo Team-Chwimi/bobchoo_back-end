@@ -1,6 +1,6 @@
 package com.chwimi.bobchoo.domain.random.dto;
 
-import com.chwimi.bobchoo.domain.survey.dto.AnswerResDto;
+import com.chwimi.bobchoo.global.dto.AnswerResDto;
 import com.chwimi.bobchoo.global.entity.Question;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

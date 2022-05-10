@@ -2,7 +2,7 @@ package com.chwimi.bobchoo.domain.random.service;
 
 import com.chwimi.bobchoo.domain.random.dto.RandomResultReqDto;
 import com.chwimi.bobchoo.domain.random.dto.SelectSurveyResDto;
-import com.chwimi.bobchoo.domain.survey.dto.FoodResDto;
+import com.chwimi.bobchoo.global.dto.FoodResDto;
 
 import java.util.List;
 
