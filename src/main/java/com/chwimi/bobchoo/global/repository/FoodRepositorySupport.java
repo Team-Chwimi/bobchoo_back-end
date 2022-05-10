@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 public class FoodRepositorySupport {
 
+    private static final int LIST_SIZE = 5;
     private final JPAQueryFactory jpaQueryFactory;
     private QFood qFood = QFood.food;
     private QFoodType qFoodType = QFoodType.foodType;
@@ -21,7 +22,7 @@ public class FoodRepositorySupport {
 
     public List<Food> findListOfFoodByFoodType(List<String> types) {
         return findFoodByFoodTypeQuery(types)
-                .limit(5)
+                .limit(LIST_SIZE)
                 .fetch();
     }
 
@@ -37,6 +38,25 @@ public class FoodRepositorySupport {
                 .where(qFoodType.type.in(types))
                 .groupBy(qFood)
                 .having(qFoodType.type.count().eq(Long.valueOf(types.size())))
+                .orderBy(Expressions.numberTemplate(Double.class, "function('rand')").asc());
+    }
+
+    public List<Food> findListOfFood() {
+        return findFoodQuery()
+                .limit(LIST_SIZE)
+                .fetch();
+    }
+
+    public Food findFood() {
+        return findFoodQuery()
+                .fetchFirst();
+    }
+
+    private JPAQuery<Food> findFoodQuery() {
+        return jpaQueryFactory.selectFrom(qFood)
+                .innerJoin(qFoodInfo).on(qFood.id.eq(qFoodInfo.food.id))
+                .innerJoin(qFoodType).on(qFoodType.id.eq(qFoodInfo.foodType.id))
+                .groupBy(qFood)
                 .orderBy(Expressions.numberTemplate(Double.class, "function('rand')").asc());
     }
 }
