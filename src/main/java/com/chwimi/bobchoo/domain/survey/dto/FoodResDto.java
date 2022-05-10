@@ -6,15 +6,12 @@ import lombok.*;
 
 @Getter
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class FoodResDto {
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long foodId;
-    @JsonInclude
     private String foodName;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String foodImg;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String foodURL;
 
     public static FoodResDto ofOne(Food food) {
