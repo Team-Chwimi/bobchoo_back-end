@@ -14,6 +14,8 @@ public class FoodResDto {
     private String foodName;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String foodImg;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String foodURL;
 
     public static FoodResDto ofOne(Food food) {
         return FoodResDto.builder()
@@ -27,6 +29,13 @@ public class FoodResDto {
                 .foodId(food.getId())
                 .foodName(food.getName())
                 .build();
+    }
 
+    public static FoodResDto ofCopyright(Food food) {
+        return FoodResDto.builder()
+                .foodId(food.getId())
+                .foodName(food.getName())
+                .foodURL(food.getImgCopyright())
+                .build();
     }
 }
