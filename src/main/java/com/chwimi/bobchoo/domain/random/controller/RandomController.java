@@ -1,9 +1,9 @@
 package com.chwimi.bobchoo.domain.random.controller;
 
 import com.chwimi.bobchoo.domain.random.dto.RandomResultReqDto;
-import com.chwimi.bobchoo.domain.random.dto.SelectSurveyResDto;
 import com.chwimi.bobchoo.domain.random.service.RandomService;
 import com.chwimi.bobchoo.global.dto.FoodResDto;
+import com.chwimi.bobchoo.global.dto.QuestionResDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ public class RandomController {
 
     @GetMapping
     @ApiOperation(value = "개수 선택 질문 반환", notes = "음식을 한개만 추천해줄건지 여러개를 추천해줄건지 선택하는 질문을 보내줌")
-    public SelectSurveyResDto random() {
+    public QuestionResDto random() {
         return randomService.getSelectSurvey();
     }
 

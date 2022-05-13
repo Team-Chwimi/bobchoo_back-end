@@ -1,10 +1,10 @@
 package com.chwimi.bobchoo.domain.random.service;
 
 import com.chwimi.bobchoo.domain.random.dto.RandomResultReqDto;
-import com.chwimi.bobchoo.domain.random.dto.SelectSurveyResDto;
 import com.chwimi.bobchoo.domain.random.exception.SurveyNotFoundException;
 import com.chwimi.bobchoo.global.dto.FoodResDto;
 import com.chwimi.bobchoo.global.common.StatusEnum;
+import com.chwimi.bobchoo.global.dto.QuestionResDto;
 import com.chwimi.bobchoo.global.entity.Food;
 import com.chwimi.bobchoo.global.entity.Question;
 import com.chwimi.bobchoo.global.repository.FoodRepositorySupport;
@@ -23,11 +23,11 @@ public class RandomServiceImpl implements RandomService {
     private final FoodRepositorySupport foodRepositorySupport;
 
     @Override
-    public SelectSurveyResDto getSelectSurvey() {
+    public QuestionResDto getSelectSurvey() {
         Question question = questionRepository.findById(9L).orElseThrow(
                 () -> new SurveyNotFoundException(StatusEnum.INTERNAL_SERVER_ERROR, "설문이 존재하지않습니다.")
         );
-        return SelectSurveyResDto.of(question);
+        return QuestionResDto.of(question);
     }
 
     @Override
