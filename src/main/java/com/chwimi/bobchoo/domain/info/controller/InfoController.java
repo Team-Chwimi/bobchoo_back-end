@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "Info API", tags = {"Info"})
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/v1/info")
+@RequestMapping("/info")
 public class InfoController {
 
     private final InfoService infoService;
@@ -20,5 +20,4 @@ public class InfoController {
     public CopyrightResDto copyright() {
         return infoService.getCopyright();
     }
-
 }

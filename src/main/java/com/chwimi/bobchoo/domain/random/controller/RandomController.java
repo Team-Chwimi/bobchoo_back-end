@@ -14,7 +14,7 @@ import java.util.List;
 @Api(value = "음식 랜덤 추천 API", tags = {"Random"})
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/v1/random")
+@RequestMapping("/random")
 public class RandomController {
 
     private final RandomService randomService;
