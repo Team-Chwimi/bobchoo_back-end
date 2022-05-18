@@ -17,7 +17,7 @@ import java.util.List;
 @Api(value = "음식 설문 추천 API", tags = {"Surveys"})
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/v1/surveys")
+@RequestMapping("/surveys")
 public class SurveyController {
 
     private final SurveyService surveyService;
