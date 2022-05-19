@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
@@ -26,9 +27,9 @@ public class FoodRepositorySupport {
                 .fetch();
     }
 
-    public Food findFoodByFoodType(List<String> types) {
-        return findFoodByFoodTypeQuery(types)
-                .fetchFirst();
+    public Optional<Food> findFoodByFoodType(List<String> types) {
+        return Optional.ofNullable(findFoodByFoodTypeQuery(types)
+                .fetchFirst());
     }
 
     private JPAQuery<Food> findFoodByFoodTypeQuery(List<String> types) {
@@ -40,7 +41,6 @@ public class FoodRepositorySupport {
                 .having(qFoodType.type.count().eq(Long.valueOf(types.size())))
                 .orderBy(Expressions.numberTemplate(Double.class, "function('rand')").asc());
     }
-
     public List<Food> findListOfFood() {
         return findFoodQuery()
                 .limit(LIST_SIZE)

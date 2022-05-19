@@ -42,7 +42,7 @@ public class SurveyRepositoryTest {
         types.add("매움");
 
         List<Food> foods = foodRepositorySupport.findListOfFoodByFoodType(types);
-        Food food = foodRepositorySupport.findFoodByFoodType(types);
+        Food food = foodRepositorySupport.findFoodByFoodType(types).get();
 
         System.out.println();
     }
