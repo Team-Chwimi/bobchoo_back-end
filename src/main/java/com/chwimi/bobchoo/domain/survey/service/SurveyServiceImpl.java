@@ -4,6 +4,7 @@ import com.chwimi.bobchoo.domain.survey.dto.*;
 import com.chwimi.bobchoo.global.common.FoodTypeEnum;
 import com.chwimi.bobchoo.global.common.StatusEnum;
 import com.chwimi.bobchoo.global.dto.FoodResDto;
+import com.chwimi.bobchoo.global.dto.QueryTypeDto;
 import com.chwimi.bobchoo.global.dto.QuestionResDto;
 import com.chwimi.bobchoo.global.entity.Food;
 import com.chwimi.bobchoo.global.entity.Question;
@@ -40,8 +41,9 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public FoodResDto surveyResult(SurveyResultReqDto resultReqDto) {
-        List<String> types = foodTypeParsing(resultReqDto.getAnswerList());
-        Food food = foodRepositorySupport.findFoodByFoodType(types).orElseThrow(
+        List<String> querys = foodTypeParsing(resultReqDto.getAnswerList());
+        QueryTypeDto queryTypeDto = QueryTypeDto.of(querys);
+        Food food = foodRepositorySupport.findFoodByFoodType(queryTypeDto).orElseThrow(
                 () -> new CustomException(StatusEnum.DATA_NOT_FOUND, "조건에 해당하는 음식을 찾을 수 없습니다.")
         );
         FoodResDto foodResDto = FoodResDto.ofOne(food);
@@ -50,8 +52,9 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public List<FoodResDto> surveyResultList(SurveyResultReqDto resultReqDto) {
-        List<String> types = foodTypeParsing(resultReqDto.getAnswerList());
-        List<Food> foods = foodRepositorySupport.findListOfFoodByFoodType(types);
+        List<String> querys = foodTypeParsing(resultReqDto.getAnswerList());
+        QueryTypeDto queryTypeDto = QueryTypeDto.of(querys);
+        List<Food> foods = foodRepositorySupport.findListOfFoodByFoodType(queryTypeDto);
         if (foods == null)
             throw new CustomException(StatusEnum.DATA_NOT_FOUND, "조건에 해당하는 음식을 찾을 수 없습니다.");
         List<FoodResDto> foodResDtos = foods.stream()

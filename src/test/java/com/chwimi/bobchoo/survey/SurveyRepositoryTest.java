@@ -1,5 +1,6 @@
 package com.chwimi.bobchoo.survey;
 
+import com.chwimi.bobchoo.global.dto.QueryTypeDto;
 import com.chwimi.bobchoo.global.entity.Food;
 import com.chwimi.bobchoo.global.repository.*;
 import com.chwimi.bobchoo.global.entity.FoodType;
@@ -41,8 +42,10 @@ public class SurveyRepositoryTest {
         types.add("한식");
         types.add("매움");
 
-        List<Food> foods = foodRepositorySupport.findListOfFoodByFoodType(types);
-        Food food = foodRepositorySupport.findFoodByFoodType(types).get();
+        QueryTypeDto queryTypeDto = QueryTypeDto.of(types);
+
+        List<Food> foods = foodRepositorySupport.findListOfFoodByFoodType(queryTypeDto);
+        Food food = foodRepositorySupport.findFoodByFoodType(queryTypeDto).get();
 
         System.out.println();
     }
