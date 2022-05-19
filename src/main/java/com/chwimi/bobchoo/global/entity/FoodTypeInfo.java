@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "tb_food_info")
-public class FoodInfo extends BaseEntity {
+@Table(name = "tb_food_type_info")
+public class FoodTypeInfo extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "food_id")

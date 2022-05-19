@@ -23,7 +23,15 @@ public class Food extends BaseEntity {
     private String imgCopyright;
 
     @OneToMany(mappedBy = "food")
-    private List<FoodInfo> foodInfos;
+    private List<FoodTypeInfo> foodTypeInfos;
 
+    @OneToMany(mappedBy = "food")
+    private List<FoodIngredientInfo> foodIngredientInfos;
+
+    @OneToMany(mappedBy = "food")
+    private List<FoodShapeInfo> foodShapeInfos;
+
+    @OneToOne(mappedBy = "food")
+    private FoodTaste foodTaste;
 
 }

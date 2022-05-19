@@ -17,5 +17,5 @@ public class FoodType extends BaseEntity {
     private String type;
 
     @OneToMany(mappedBy = "foodType")
-    private List<FoodInfo> foodInfos;
+    private List<FoodTypeInfo> foodTypeInfos;
 }
