@@ -1,8 +1,8 @@
 package com.chwimi.bobchoo.global.dto;
 
-import com.chwimi.bobchoo.global.common.FoodTypeEnum;
 import com.chwimi.bobchoo.global.common.StatusEnum;
 import com.chwimi.bobchoo.global.exception.CustomException;
+import com.chwimi.bobchoo.global.common.FoodTypeEnum;
 import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
