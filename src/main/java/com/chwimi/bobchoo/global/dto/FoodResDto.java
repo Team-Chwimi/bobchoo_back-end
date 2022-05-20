@@ -22,10 +22,16 @@ public class FoodResDto {
     private String foodURL;
 
     public static FoodResDto ofOne(Food food) {
-        return FoodResDto.builder()
-                .foodName(food.getName())
-                .foodImg(food.getImg())
-                .build();
+        if (food.getId() == null)
+            return FoodResDto.builder()
+                    .foodName("")
+                    .foodImg("")
+                    .build();
+        else
+            return FoodResDto.builder()
+                    .foodName(food.getName())
+                    .foodImg(food.getImg())
+                    .build();
     }
 
     public static FoodResDto ofList(Food food) {

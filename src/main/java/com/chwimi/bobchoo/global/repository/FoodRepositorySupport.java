@@ -2,7 +2,6 @@ package com.chwimi.bobchoo.global.repository;
 
 import com.chwimi.bobchoo.global.dto.QueryTypeDto;
 import com.chwimi.bobchoo.global.entity.*;
-import com.querydsl.core.types.Visitor;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQuery;

@@ -43,9 +43,10 @@ public class SurveyServiceImpl implements SurveyService {
     public FoodResDto surveyResult(SurveyResultReqDto resultReqDto) {
         List<String> querys = foodTypeParsing(resultReqDto.getAnswerList());
         QueryTypeDto queryTypeDto = QueryTypeDto.of(querys);
-        Food food = foodRepositorySupport.findFoodByFoodType(queryTypeDto).orElseThrow(
-                () -> new CustomException(StatusEnum.DATA_NOT_FOUND, "조건에 해당하는 음식을 찾을 수 없습니다.")
-        );
+        Food food = foodRepositorySupport.findFoodByFoodType(queryTypeDto).orElseGet(() -> new Food());
+//        Food food = foodRepositorySupport.findFoodByFoodType(queryTypeDto).orElseThrow(
+//                () -> new CustomException(StatusEnum.DATA_NOT_FOUND, "조건에 해당하는 음식을 찾을 수 없습니다.")
+//        );
         FoodResDto foodResDto = FoodResDto.ofOne(food);
         return foodResDto;
     }
