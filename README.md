@@ -35,11 +35,10 @@
 
 ### 저장소 링크
 
-[**🔗 백엔드 저장소**](https://lab.ssafy.com/s06-final/S06P31A303)  
-[**🔗 프론트엔드 저장소**](https://lab.ssafy.com/anottrx/s06p31a303-frontend)  
-[**🔗 iOS 저장소**](https://lab.ssafy.com/anottrx/s06p31a303-ios)  
-[**🔗 CICD 저장소**](https://lab.ssafy.com/anottrx/s06p31a303-recommendation-service)  
-[**🔗 소켓 저장소**](https://lab.ssafy.com/anottrx/s06p31a303-socket)
+[**🔗 백엔드 저장소**](https://github.com/Team-Chwimi/bobchoo_back-end)  
+[**🔗 프론트엔드 저장소**](https://github.com/Team-Chwimi/bobchoo_front-end)  
+[**🔗 iOS 저장소**](https://github.com/Team-Chwimi/bobchoo_ios)  
+[**🔗 Android 저장소**](https://github.com/Team-Chwimi/bobchoo_android)
 
 ### 노션 링크
 
