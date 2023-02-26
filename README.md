@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-  <img src="./readme_assets/logo.png" alt="밥추" width="100px" height="100px" />
+  <img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/logo.png" alt="밥추" width="100px" height="100px" />
   <br />
   <h1>밥추</h1>
   <br />
@@ -14,11 +14,13 @@
 2. [**기술 스택**](#2)
 3. [**주요 기능**](#3)
 4. [**화면 설계 내용**](#4)
-5. [**프로젝트 구성도**](#5)
-6. [**캐릭터 디자인**](#6)
-7. [**API 명세**](#7)
-8. [**개발 팀 소개**](#8)
-9. [**Git 규칙**](#9)
+5. [**ERD**](#5)
+6. [**API 명세**](#6)
+7. [**구현 결과**](#7)
+8. [**구현 성과**](#8)
+9. [**캐릭터 디자인**](#9)
+10. [**개발 팀 소개**](#10)
+11. [**Git 규칙**](#11)
 
 <br />
 
@@ -26,19 +28,29 @@
 
 ## 💁 서비스 소개
 
-**밥추** 서비스는 설문을 통해 또는 랜덤으로 식사 메뉴를 선택해주는 서비스입니다. 식사 메뉴는 혼자서 결정하거나 여러 명이서 투표를 통해 선정 가능합니다. 또 현위치 주변에서 해당 메뉴를 파는 식당 목록과 경로를 제공합니다.  
-**밥추** 서비스는 모바일 친화적인 웹사이트와 iOS 앱으로 이용 가능합니다.
+**밥추** 서비스는 설문을 통해 또는 랜덤으로 식사 메뉴를 추천해주는 서비스입니다. 또한 현위치 주변에서 해당 메뉴를 파는 식당 목록을 제공합니다.  
+**밥추** 서비스는 모바일 친화적인 웹사이트와 안드로이드 앱으로 이용 가능하며 iOS 버전도 준비 중입니다.
 
 ### 서비스 기획 배경
 
 식사 메뉴를 고르지 못하는 사람들을 대신하여 선택하기 위해 기획했습니다.
 
+### 사이트 링크
+
+[**🔗 밥추 사이트**](https://bobchoo.site/)
+
+### 플레이스토어 링크
+
+[**🔗 구글 플레이스토어 링크**](https://play.google.com/store/apps/details?id=com.chwimi.bobchoo)
+
+> iOS 앱은 현재 개발 진행중입니다.
+
 ### 저장소 링크
 
 [**🔗 백엔드 저장소**](https://github.com/Team-Chwimi/bobchoo_back-end)  
-[**🔗 프론트엔드 저장소**](https://github.com/Team-Chwimi/bobchoo_front-end)  
-[**🔗 iOS 저장소**](https://github.com/Team-Chwimi/bobchoo_ios)  
-[**🔗 Android 저장소**](https://github.com/Team-Chwimi/bobchoo_android)
+[**🔗 프론트엔드 저장소**](https://github.com/Team-Chwimi/bobchoo_front-end)
+<!-- [**🔗 iOS 저장소**](https://github.com/Team-Chwimi/bobchoo_ios)   -->
+[**🔗 안드로이드 저장소**](https://github.com/Team-Chwimi/bobchoo_android)
 
 ### 노션 링크
 
@@ -50,9 +62,13 @@
 
 ## 🛠 기술 스택
 
+### **기술 스택**
+
+<img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/tech_stack.jpg" alt="tech_stack" width="900px"/>
+
 ### **서비스 구성도**
 
-<img src="./readme_assets/technical_architecture.png" alt="구성도" height="500px"/>
+<img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/technical_architecture.jpg" alt="technical_architecture" width="500px" />
 
 <br />
 
@@ -60,13 +76,9 @@
 
 ## 💡 주요 기능
 
-### 식사 메뉴 선정
+### 식사 메뉴 추천
 
-설문 또는 랜덤으로 식사 메뉴를 선택
-
-### 투표
-
-투표로 여러 명이서 함께 식사 메뉴 선택 가능
+설문 또는 랜덤으로 식사 메뉴 추천
 
 ### 식당 지도 제공
 
@@ -78,42 +90,96 @@
 
 ## 💻 화면 설계 내용
 
-| [Figma](https://www.figma.com/file/xwVM8exgzfoKCq5dmpims5/%EC%B7%A8%EB%AF%B8%ED%8C%80?node-id=0%3A1) |
-| :--------------------------------------------------------------------------------------------------: |
-|                                                모바일                                                |
-|                       <img src="readme_assets/figma_mobile.PNG" alt="Figma" />                       |
+|          [Figma](https://www.figma.com/file/xwVM8exgzfoKCq5dmpims5/%EC%B7%A8%EB%AF%B8%ED%8C%80?node-id=0%3A1)          |
+| :--------------------------------------------------------------------------------------------------------------------: |
+|                                                         모바일                                                         |
+| <img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/figma.png" alt="Figma" width="900px"/> |
 
 <br />
 
 <div id="5"></div>
 
-## 📂 프로젝트 구성도
+## 🗄️ ERD
 
-[**🔗 기능 정의서**](https://docs.google.com/spreadsheets/d/1aZ-Tk6ARGN4bDCDHEYn8KShKtQjdve7AVTqrD48GzwM)
+<img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/erd.png" alt="ERD" width="900px"/>
 
 <br />
 
 <div id="6"></div>
 
-## 🐷 캐릭터 디자인
+## 📋 API 명세
 
-### 밥돌이 (밥추의 마스코트)
-
-|                                 나쵸 먹는 밥돌이                                  |                                  당근 먹는 밥돌이                                  |
-| :-------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
-| <img src="readme_assets/bobdol_nacho.gif" alt="나쵸 먹는 밥돌이" height="300px"/> | <img src="readme_assets/bobdol_carrot.gif" alt="당근 먹는 밥돌이" height="300px"/> |
+[**🔗 API 명세 상세보기**](https://chwimi.notion.site/API-be1207b0c6c5411e8c4e9b11ac4d982a)  
+[**🔗 스웨거 링크**](https://bobchoo.site/api/v1/swagger-ui/)
 
 <br />
 
 <div id="7"></div>
 
-## 📋 API 명세
+## 🎨 구현 결과
 
-[**🔗 API 명세 상세보기**](https://chwimi.notion.site/API-be1207b0c6c5411e8c4e9b11ac4d982a)
+### PC
+
+- 메인 페이지
+- 설문 화면 및 결과
+- 랜덤 화면 및 결과
+- 지도
+
+<!-- ### iOS -->
+<!-- ### Android -->
 
 <br />
 
 <div id="8"></div>
+
+## 🌟 구현 성과
+
+### 백엔드
+
+- JMeter 부하테스트
+
+  - 조건
+    - 1초 동안 동시접속자
+    - POST API 5회/1명
+  - PC 사양
+    - CPU : Ryzen 2600X
+    - RAM : 16G GPU
+    - GTX1060 6G
+
+  | <img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/jmeter_test1.png" alt="jmeter_test1" width="700px"/>
+  | :-------------------------------------------------------------------------------------------------------: |
+  | 동시 접속자 수 : 10000명 |
+  | 걸린 시간 : 1분 25초 |
+
+  | <img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/jmeter_test2.png" alt="jmeter_test2" width="700px"/> |
+  | :----------------------------------------------------------------------------------------------------------------------------------: |
+  |                                                       동시 접속자 수 : 15000명                                                       |
+  |                                                         걸린 시간 : 2분 24초                                                         |
+
+<!-- ### 프론트엔드
+
+- lighthouse로 성능테스트
+  | SEO 100점 |
+  | :-------------------------------------------------------------------------------------------------------: |
+  | <img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/lighthouse_seo.png" alt="lighthouse_seo" width="600px"/> -->
+
+<br />
+
+<div id="9"></div>
+
+## 🐷 캐릭터 디자인
+
+### 밥돌이 (밥추의 마스코트)
+
+(디자인 : [이아영](https://github.com/dgh03207))
+
+|                                                             나쵸 먹는 밥돌이                                                              |                                                              당근 먹는 밥돌이                                                              |
+| :---------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/bobdol_nacho.gif" alt="나쵸 먹는 밥돌이" height="300px"/> | <img src="https://github.com/Team-Chwimi/bobchoo_docs/blob/master/readme_assets/bobdol_carrot.gif" alt="당근 먹는 밥돌이" height="300px"/> |
+
+<br />
+
+<div id="10"></div>
 
 ## 👪 개발 팀 소개
 
@@ -150,35 +216,52 @@
   <tr>
     <td align="center">
       <a href="https://github.com/anottrx" target="_blank">
-        구련아<br />(Web Front-end)
+        구련아
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/eunyeong1113" target="_blank">
-        이은영<br />(Web Front-end)
+        이은영
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/choymoon" target="_blank">
-        조용문<br />(iOS)
+        조용문
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/dgh03207" target="_blank">
-        이아영<br />(Back-end)
+        이아영
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/DeerGum" target="_blank">
-        황정준<br />(Back-end)
+        황정준
       </a>
+    </td>
+  </tr>
+   <tr>
+    <td align="center">
+        Front-end
+    </td>
+    <td align="center">
+        Front-end
+    </td>
+    <td align="center">
+        iOS
+    </td>
+    <td align="center">
+        Back-end
+    </td>
+    <td align="center">
+        Back-end<br />Android
     </td>
   </tr>
 </table>
 
 <br />
 
-<div id="9"></div>
+<div id="11"></div>
 
 ## 📌 Git 규칙
 
@@ -210,11 +293,11 @@ Merge : 변경된 내용 작성
 ### 예시
 
 ```
-Feat : 로그인 API 구현
-Design : 00 통계 차트 마크업 및 스타일링 구현
-Refactor : 회원가입 API 코드 리팩터링
-Merge : develop ← feature/login
-Remove : 땡땡땡 파일 삭제
+Feat : 설문 질문 조회 API 구현
+Design : 설문 페이지 마크업 및 스타일링 구현
+Refactor : 설문 질문 조회 API 코드 리팩터링
+Merge : develop ← feature/map
+Remove : Map 파일 삭제
 ```
 
 ### 브랜치 전략
@@ -231,11 +314,7 @@ hotfix : 출시 버전에서 발생한 버그를 수정 하는 브랜치
 
 ```
 master
-
 release-1.0.0
-
 develop
-
-feature/login
-feature/signup
+feature/map
 ```
